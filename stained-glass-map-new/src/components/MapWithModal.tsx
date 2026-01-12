@@ -56,6 +56,24 @@ export default function MapWithModal({
   // Use either store or local selection (store takes precedence)
   const selectedId = storeSelectedId || localSelectedId;
 
+  // Check for location query parameter on mount (for deep linking from artist pages)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const locationParam = params.get('location');
+      if (locationParam) {
+        // Verify the location exists
+        const locationExists = fullLocations.some((loc) => loc.id === locationParam);
+        if (locationExists) {
+          setLocalSelectedId(locationParam);
+        }
+        // Clean up the URL without triggering a page reload
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, '', newUrl);
+      }
+    }
+  }, [fullLocations]);
+
   // When store selection changes, update local and clear store
   useEffect(() => {
     if (storeSelectedId) {

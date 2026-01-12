@@ -183,6 +183,20 @@ export default function MobileDrawer({ locations, artists, counties }: MobileDra
             : undefined
         }}
       >
+        {/* Celtic corner accents */}
+        <img
+          src="/HighQualityCelticCornerDesign.svg"
+          alt=""
+          className="drawer-celtic-left"
+          aria-hidden="true"
+        />
+        <img
+          src="/HighQualityCelticCornerDesign.svg"
+          alt=""
+          className="drawer-celtic-right"
+          aria-hidden="true"
+        />
+
         {/* Pull handle */}
         <div
           className="drawer-handle"
@@ -299,15 +313,41 @@ export default function MobileDrawer({ locations, artists, counties }: MobileDra
           left: 0;
           right: 0;
           height: ${DRAWER_EXPANDED_HEIGHT}vh;
-          background: var(--color-parchment);
+          background: rgba(245, 239, 230, 0.95);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
           border-top-left-radius: 16px;
           border-top-right-radius: 16px;
+          border-top: 1px solid rgba(201, 169, 97, 0.3);
           box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
           transform: translateY(calc(100% - ${DRAWER_PEEK}px));
           transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           z-index: 500;
           display: flex;
           flex-direction: column;
+          overflow: hidden;
+        }
+
+        /* Celtic corner accents */
+        .drawer-celtic-left,
+        .drawer-celtic-right {
+          position: absolute;
+          top: -8px;
+          width: 50px;
+          height: 50px;
+          opacity: 0.5;
+          pointer-events: none;
+          z-index: 10;
+        }
+
+        .drawer-celtic-left {
+          left: 8px;
+          transform: rotate(180deg);
+        }
+
+        .drawer-celtic-right {
+          right: 8px;
+          transform: rotate(-90deg);
         }
 
         .mobile-drawer.expanded {
@@ -335,7 +375,8 @@ export default function MobileDrawer({ locations, artists, counties }: MobileDra
         .handle-bar {
           width: 40px;
           height: 4px;
-          background: rgba(0, 0, 0, 0.2);
+          background: var(--color-ornament-gold);
+          opacity: 0.6;
           border-radius: 2px;
           margin-bottom: 8px;
         }
@@ -391,7 +432,7 @@ export default function MobileDrawer({ locations, artists, counties }: MobileDra
           align-items: center;
           justify-content: space-between;
           padding: 10px 12px;
-          background: rgba(255, 255, 255, 0.6);
+          background: transparent;
           border: 1px solid rgba(201, 169, 97, 0.4);
           border-radius: 8px;
           font-family: var(--font-body);
@@ -404,7 +445,7 @@ export default function MobileDrawer({ locations, artists, counties }: MobileDra
         .dropdown-toggle:hover,
         .dropdown-toggle.active {
           border-color: var(--color-ornament-gold);
-          background: rgba(255, 255, 255, 0.8);
+          background: rgba(201, 169, 97, 0.1);
         }
 
         .dropdown-arrow {
@@ -495,9 +536,10 @@ export default function MobileDrawer({ locations, artists, counties }: MobileDra
           align-items: center;
           gap: 12px;
           padding: 8px;
-          background: rgba(255, 255, 255, 0.5);
+          background: transparent;
           border: none;
-          border-radius: 8px;
+          border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+          border-radius: 0;
           text-align: left;
           cursor: pointer;
           font-family: var(--font-body);
@@ -505,11 +547,12 @@ export default function MobileDrawer({ locations, artists, counties }: MobileDra
         }
 
         .location-item:hover {
-          background: rgba(255, 255, 255, 0.8);
+          background: rgba(201, 169, 97, 0.08);
         }
 
         .location-item:active {
           transform: scale(0.98);
+          background: rgba(201, 169, 97, 0.15);
         }
 
         .location-thumb {

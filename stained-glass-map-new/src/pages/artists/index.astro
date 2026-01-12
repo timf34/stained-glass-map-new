@@ -1,0 +1,233 @@
+---
+/**
+ * Artists Index Page
+ *
+ * Grid layout showing all stained glass artists
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Load all artists
+const artists = await getCollection('artists');
+
+// Sort alphabetically by name
+const sortedArtists = artists.sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+
+<BaseLayout title="Artists">
+  <div class="artists-page">
+    <!-- Header -->
+    <header class="page-header">
+      <a href="/" class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span>Back to Map</span>
+      </a>
+      <h1 class="page-title">Stained Glass Artists</h1>
+      <p class="page-subtitle">Discover the masters of Irish stained glass</p>
+    </header>
+
+    <!-- Artists Grid -->
+    <div class="artists-grid">
+      {sortedArtists.map((artist) => (
+        <a href={`/artists/${artist.data.slug}`} class="artist-card">
+          <div class="artist-portrait">
+            {artist.data.portrait_url ? (
+              <img src={artist.data.portrait_url} alt={artist.data.name} />
+            ) : (
+              <div class="portrait-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+                </svg>
+              </div>
+            )}
+          </div>
+          <div class="artist-info">
+            <h2 class="artist-name">{artist.data.name}</h2>
+            {(artist.data.birth_year || artist.data.death_year) && (
+              <p class="artist-years">
+                {artist.data.birth_year || '?'} - {artist.data.death_year || 'present'}
+              </p>
+            )}
+            <p class="artist-preview">
+              {artist.data.biography.length > 100
+                ? artist.data.biography.substring(0, 100) + '...'
+                : artist.data.biography}
+            </p>
+          </div>
+          <span class="view-arrow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .artists-page {
+    min-height: 100vh;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(201, 169, 97, 0.3);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-ornament-gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+    transition: all 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent-brown);
+    transform: translateX(-4px);
+  }
+
+  .page-title {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-ornament-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .page-subtitle {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+  }
+
+  .artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .artist-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: white;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(201, 169, 97, 0.2);
+  }
+
+  .artist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(201, 169, 97, 0.2);
+    border-color: var(--color-ornament-gold);
+  }
+
+  .artist-portrait {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: rgba(201, 169, 97, 0.1);
+    border: 2px solid rgba(201, 169, 97, 0.3);
+  }
+
+  .artist-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .portrait-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ornament-gold);
+    opacity: 0.5;
+  }
+
+  .artist-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .artist-name {
+    margin: 0 0 0.25rem 0;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+  }
+
+  .artist-years {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--color-ornament-gold);
+    font-weight: 500;
+  }
+
+  .artist-preview {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .view-arrow {
+    color: var(--color-ornament-gold);
+    opacity: 0;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .artist-card:hover .view-arrow {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .artists-page {
+      padding: var(--spacing-md);
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+    }
+
+    .artists-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .artist-portrait {
+      width: 80px;
+      height: 80px;
+    }
+
+    .artist-name {
+      font-size: 1.1rem;
+    }
+  }
+</style>

@@ -1,0 +1,369 @@
+---
+/**
+ * Individual Artist Page
+ *
+ * Shows artist biography and all their stained glass works
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import ArtistWorksGrid from '../../components/ArtistWorksGrid';
+
+// Get all artists for static paths
+export async function getStaticPaths() {
+  const artists = await getCollection('artists');
+  return artists.map((artist) => ({
+    params: { slug: artist.data.slug },
+    props: { artist },
+  }));
+}
+
+const { artist } = Astro.props;
+
+// Get all locations to find windows by this artist
+const locations = await getCollection('locations');
+
+// Find all windows by this artist across all locations
+interface WindowWithLocation {
+  window: {
+    title: string;
+    year: number | null;
+    images: Array<{ url: string; alt?: string }>;
+  };
+  locationId: string;
+  locationName: string;
+  locationCounty: string;
+}
+
+const artistWindows: WindowWithLocation[] = [];
+
+for (const location of locations) {
+  for (const window of location.data.windows) {
+    if (window.artist === artist.data.slug) {
+      artistWindows.push({
+        window: {
+          title: window.title,
+          year: window.year,
+          images: window.images,
+        },
+        locationId: location.id,
+        locationName: location.data.name,
+        locationCounty: location.data.county,
+      });
+    }
+  }
+}
+
+// Sort by year (nulls at end)
+artistWindows.sort((a, b) => {
+  if (a.window.year === null) return 1;
+  if (b.window.year === null) return -1;
+  return a.window.year - b.window.year;
+});
+
+// Get all artists for name mapping
+const artists = await getCollection('artists');
+const artistNames: Record<string, string> = {};
+for (const a of artists) {
+  artistNames[a.data.slug] = a.data.name;
+}
+
+// Build full locations data for the modal (only locations with this artist's work)
+const relevantLocationIds = new Set(artistWindows.map(w => w.locationId));
+const fullLocations = locations
+  .filter(loc => relevantLocationIds.has(loc.id))
+  .map(loc => ({
+    id: loc.id,
+    name: loc.data.name,
+    address: loc.data.address || null,
+    county: loc.data.county,
+    description: loc.data.description || null,
+    google_maps_link: loc.data.google_maps_link || null,
+    windows: loc.data.windows.map((w: any) => ({
+      title: w.title,
+      artist: w.artist || null,
+      year: w.year || null,
+      description: w.description || null,
+      images: w.images || [],
+    })),
+  }));
+---
+
+<BaseLayout title={artist.data.name}>
+  <div class="artist-page">
+    <!-- Header -->
+    <header class="page-header">
+      <a href="/artists" class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span>All Artists</span>
+      </a>
+    </header>
+
+    <!-- Artist Profile -->
+    <div class="artist-profile">
+      <div class="portrait-container">
+        {artist.data.portrait_url ? (
+          <img src={artist.data.portrait_url} alt={artist.data.name} class="portrait" />
+        ) : (
+          <div class="portrait-placeholder">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+            </svg>
+          </div>
+        )}
+      </div>
+
+      <div class="artist-details">
+        <h1 class="artist-name">{artist.data.name}</h1>
+        {(artist.data.birth_year || artist.data.death_year) && (
+          <p class="artist-years">
+            {artist.data.birth_year || '?'} - {artist.data.death_year || 'present'}
+          </p>
+        )}
+      </div>
+    </div>
+
+    <!-- Biography -->
+    <section class="biography-section">
+      <h2 class="section-title">
+        <span class="title-line"></span>
+        <span>Biography</span>
+        <span class="title-line"></span>
+      </h2>
+      <div class="biography-content">
+        {artist.data.biography.split('\n\n').map((paragraph: string) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+    </section>
+
+    <!-- Works -->
+    {artistWindows.length > 0 && (
+      <section class="works-section">
+        <h2 class="section-title">
+          <span class="title-line"></span>
+          <span>Works ({artistWindows.length})</span>
+          <span class="title-line"></span>
+        </h2>
+        <ArtistWorksGrid
+          client:load
+          works={artistWindows}
+          fullLocations={fullLocations}
+          artistNames={artistNames}
+        />
+      </section>
+    )}
+
+    <!-- No Works Message -->
+    {artistWindows.length === 0 && (
+      <section class="no-works">
+        <p>No works by this artist have been catalogued yet.</p>
+        <a href="/" class="explore-link">Explore the map</a>
+      </section>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  /* Override global overflow:hidden for this page */
+  :global(body) {
+    overflow: auto !important;
+    position: static !important;
+  }
+
+  .artist-page {
+    min-height: 100vh;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+  }
+
+  .page-header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-ornament-gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent-brown);
+    transform: translateX(-4px);
+  }
+
+  /* Artist Profile */
+  .artist-profile {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid rgba(201, 169, 97, 0.3);
+  }
+
+  .portrait-container {
+    flex-shrink: 0;
+  }
+
+  .portrait {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--color-ornament-gold);
+    box-shadow: 0 8px 32px rgba(201, 169, 97, 0.3);
+  }
+
+  .portrait-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(201, 169, 97, 0.1);
+    border: 4px solid rgba(201, 169, 97, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ornament-gold);
+    opacity: 0.5;
+  }
+
+  .artist-details {
+    flex: 1;
+  }
+
+  .artist-name {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-ornament-gold);
+    line-height: 1.1;
+  }
+
+  .artist-years {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  /* Sections */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin: 0 0 var(--spacing-lg) 0;
+    font-size: 0.9rem;
+    color: var(--color-ornament-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+  }
+
+  .title-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-ornament-gold) 50%, transparent);
+  }
+
+  /* Biography */
+  .biography-section {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .biography-content {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    border-left: 4px solid var(--color-ornament-gold);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .biography-content p {
+    margin: 0 0 var(--spacing-md) 0;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    font-size: 1.05rem;
+  }
+
+  .biography-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Works Grid */
+  .works-section {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  /* No Works */
+  .no-works {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(201, 169, 97, 0.2);
+  }
+
+  .no-works p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .explore-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--color-ornament-gold);
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .explore-link:hover {
+    background: var(--color-accent-brown);
+    transform: translateY(-2px);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .artist-page {
+      padding: var(--spacing-md);
+    }
+
+    .artist-profile {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--spacing-md);
+    }
+
+    .portrait,
+    .portrait-placeholder {
+      width: 150px;
+      height: 150px;
+    }
+
+    .artist-name {
+      font-size: 2rem;
+    }
+
+    .artist-years {
+      font-size: 1rem;
+    }
+
+    .biography-content {
+      padding: var(--spacing-md);
+    }
+  }
+</style>

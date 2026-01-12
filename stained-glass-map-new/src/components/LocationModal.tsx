@@ -125,9 +125,13 @@ export default function LocationModal({
                   <div className="window-info">
                     <h4 className="window-title">{window.title}</h4>
                     {window.artist && (
-                      <p className="window-artist">
+                      <a
+                        href={`/artists/${window.artist}`}
+                        className="window-artist-link"
+                        onClick={(e) => e.stopPropagation()}
+                      >
                         {artistNames[window.artist] || window.artist}
-                      </p>
+                      </a>
                     )}
                     {window.year && (
                       <p className="window-year">{window.year}</p>
@@ -514,11 +518,19 @@ export default function LocationModal({
           line-height: 1.3;
         }
 
-        .window-artist {
+        .window-artist-link {
+          display: block;
           margin: 0;
           font-size: 0.85rem;
           color: var(--color-ornament-gold);
           font-weight: 500;
+          text-decoration: none;
+          transition: all 0.2s ease;
+        }
+
+        .window-artist-link:hover {
+          color: var(--color-accent-brown);
+          text-decoration: underline;
         }
 
         .window-year {

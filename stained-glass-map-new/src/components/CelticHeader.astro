@@ -4,23 +4,29 @@
  *
  * Displays the ornamental title header with:
  * - Celtic header title SVG
- * - Subtitle text
+ * - Navigation links
  * - "Add a Location" button
  */
 ---
 
 <header class="header">
-  <h2 class="header-title">Stained Glass Map</h2>
-
-  <!-- Add Location Button -->
-  <a
-    href="https://forms.google.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="add-location-btn"
-  >
-    Add a Location
+  <a href="/" class="header-title-link">
+    <h2 class="header-title">Stained Glass Map</h2>
   </a>
+
+  <!-- Navigation -->
+  <nav class="header-nav">
+    <a href="/about" class="nav-link">About</a>
+    <a href="/artists" class="nav-link">Artists</a>
+    <a
+      href="https://forms.google.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-link nav-link-primary"
+    >
+      Add a Location
+    </a>
+  </nav>
 </header>
 
 <style>
@@ -35,6 +41,10 @@
     justify-content: center;
   }
 
+  .header-title-link {
+    text-decoration: none;
+  }
+
   .header-title {
     margin: 0;
     font-family: var(--font-heading);
@@ -43,25 +53,45 @@
     color: var(--color-ornament-gold);
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    transition: color 0.2s ease;
   }
 
-  .add-location-btn {
+  .header-title-link:hover .header-title {
+    color: var(--color-accent-brown);
+  }
+
+  .header-nav {
     position: absolute;
-    right: var(--spacing-xl);
+    right: 100px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    z-index: 1000;
+  }
+
+  .nav-link {
     padding: var(--spacing-xs) var(--spacing-md);
-    background: var(--color-card-bg);
-    border: 1px solid var(--color-border);
+    background: transparent;
+    border: 1px solid transparent;
     border-radius: 4px;
     color: var(--color-text-primary);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
     transition: all var(--transition-normal);
-    display: inline-block;
-    z-index: 20;
   }
 
-  .add-location-btn:hover {
+  .nav-link:hover {
+    color: var(--color-ornament-gold);
+  }
+
+  .nav-link-primary {
+    background: transparent;
+    border: 1px solid var(--color-ornament-gold);
+    color: var(--color-ornament-gold);
+  }
+
+  .nav-link-primary:hover {
     background: var(--color-ornament-gold);
     color: var(--color-card-bg);
     border-color: var(--color-ornament-gold);
@@ -81,10 +111,25 @@
       letter-spacing: 0.05em;
     }
 
-    .add-location-btn {
+    .header-nav {
       position: static;
-      padding: 6px 12px;
+      gap: 8px;
+    }
+
+    .nav-link {
+      padding: 6px 10px;
       font-size: 0.8rem;
+    }
+
+    .nav-link-primary {
+      padding: 6px 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-link:not(.nav-link-primary) {
+      /* Hide "Artists" text on very small screens, keep button */
+      padding: 6px 8px;
     }
   }
 </style>

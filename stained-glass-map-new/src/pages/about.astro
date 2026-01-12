@@ -1,0 +1,170 @@
+---
+/**
+ * About Page
+ *
+ * Information about StainedGlassMap.com
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About">
+  <div class="about-page">
+    <!-- Header -->
+    <header class="page-header">
+      <a href="/" class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span>Back to Map</span>
+      </a>
+    </header>
+
+    <!-- Content -->
+    <div class="about-content">
+      <h1 class="about-title">About</h1>
+
+      <div class="about-text">
+        <p>
+          <strong>StainedGlassMap.com</strong> is a passion project by Tim Farrelly, and an attempt to map out the Irish stained glass ecosystem.
+        </p>
+
+        <p>
+          The best paintings are consolidated in the public galleries, but the best stained glass is a different story. They're often tucked away in churches or other buildings, and not everyone has the luck to stumble upon them! This map is an attempt to change that.
+        </p>
+
+        <p>
+          Currently we are indexing the data by hand, but we'll soon create a crowdsourcing mechanism to allow users to add stained glass you come across!
+        </p>
+      </div>
+
+      <a href="/" class="explore-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <span>Explore the Map</span>
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Override global overflow:hidden for this page */
+  :global(body) {
+    overflow: auto !important;
+    position: static !important;
+  }
+
+  .about-page {
+    min-height: 100vh;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-ornament-gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent-brown);
+    transform: translateX(-4px);
+  }
+
+  .about-content {
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .about-title {
+    margin: 0 0 var(--spacing-lg) 0;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-ornament-gold);
+    text-align: center;
+    position: relative;
+  }
+
+  .about-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-ornament-gold), transparent);
+    margin: var(--spacing-md) auto 0;
+  }
+
+  .about-text {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .about-text p {
+    margin: 0 0 var(--spacing-md) 0;
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    font-size: 1.1rem;
+  }
+
+  .about-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-text strong {
+    color: var(--color-ornament-gold);
+  }
+
+  .explore-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-ornament-gold);
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .explore-link:hover {
+    background: var(--color-accent-brown);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .about-page {
+      padding: var(--spacing-md);
+    }
+
+    .about-content {
+      padding: var(--spacing-lg);
+    }
+
+    .about-title {
+      font-size: 2rem;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+    }
+  }
+</style>
