@@ -282,6 +282,13 @@ button:disabled,
     --spacing-xl: 1.5rem;
   }
 
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
   .main-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
@@ -298,6 +305,11 @@ button:disabled,
 
   h2 {
     font-size: 1.25rem;
+  }
+
+  /* Prevent iOS bounce/rubber-banding */
+  body {
+    overscroll-behavior: none;
   }
 }
 

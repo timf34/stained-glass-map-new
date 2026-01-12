@@ -4,9 +4,11 @@
  * Combines Map and LocationModal with shared state
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useStore } from '@nanostores/react';
 import Map from './Map';
 import LocationModal from './LocationModal';
+import { selectedLocationId as storeSelectedLocationId, clearSelectedLocation } from '../stores/mapStore';
 
 interface Location {
   id: string;
@@ -48,18 +50,32 @@ export default function MapWithModal({
   artistNames,
   mapboxToken,
 }: MapWithModalProps) {
-  const [selectedLocationId, setSelectedLocationId] = useState<string | null>(null);
+  const [localSelectedId, setLocalSelectedId] = useState<string | null>(null);
+  const storeSelectedId = useStore(storeSelectedLocationId);
 
-  const selectedLocation = selectedLocationId
-    ? fullLocations.find((loc) => loc.id === selectedLocationId) || null
+  // Use either store or local selection (store takes precedence)
+  const selectedId = storeSelectedId || localSelectedId;
+
+  // When store selection changes, update local and clear store
+  useEffect(() => {
+    if (storeSelectedId) {
+      setLocalSelectedId(storeSelectedId);
+      // Clear the store after reading to avoid conflicts
+      clearSelectedLocation();
+    }
+  }, [storeSelectedId]);
+
+  const selectedLocation = selectedId
+    ? fullLocations.find((loc) => loc.id === selectedId) || null
     : null;
 
   const handleMarkerClick = (locationId: string) => {
-    setSelectedLocationId(locationId);
+    setLocalSelectedId(locationId);
   };
 
   const closeModal = () => {
-    setSelectedLocationId(null);
+    setLocalSelectedId(null);
+    clearSelectedLocation();
   };
 
   // Make handleMarkerClick available globally for map markers

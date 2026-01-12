@@ -4,14 +4,14 @@
  *
  * Main page with:
  * - Celtic header
- * - Featured sidebar
+ * - Sidebar (desktop) / Bottom drawer (mobile)
  * - Interactive map
- * - Collapsible filters
  */
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CelticHeader from '../components/CelticHeader.astro';
 import Sidebar from '../components/Sidebar';
+import MobileDrawer from '../components/MobileDrawer';
 import MapWithModal from '../components/MapWithModal';
 import { getCollection } from 'astro:content';
 
@@ -94,8 +94,8 @@ const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
   <CelticHeader />
 
   <main class="container">
-    <div class="main-grid">
-      <!-- Sidebar -->
+    <!-- Desktop Layout -->
+    <div class="desktop-layout">
       <div class="sidebar">
         <Sidebar
           locations={sidebarLocations}
@@ -104,8 +104,6 @@ const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
           client:load
         />
       </div>
-
-      <!-- Map Area -->
       <div class="map-container">
         <MapWithModal
           locations={mapLocations}
@@ -116,10 +114,38 @@ const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
         />
       </div>
     </div>
+
+    <!-- Mobile Layout -->
+    <div class="mobile-layout">
+      <div class="mobile-map-container">
+        <MapWithModal
+          locations={mapLocations}
+          fullLocations={fullLocations}
+          artistNames={artistNames}
+          mapboxToken={mapboxToken}
+          client:load
+        />
+      </div>
+      <MobileDrawer
+        locations={sidebarLocations}
+        artists={artistOptions}
+        counties={countyOptions}
+        client:load
+      />
+    </div>
   </main>
 </BaseLayout>
 
 <style>
+  /* Desktop Layout */
+  .desktop-layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 400px) 1fr;
+    gap: var(--spacing-md);
+    height: calc(100vh - 80px);
+    padding: var(--spacing-md);
+  }
+
   .sidebar {
     display: flex;
     flex-direction: column;
@@ -135,16 +161,38 @@ const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
     height: 100%;
   }
 
+  /* Mobile Layout - Hidden on desktop */
+  .mobile-layout {
+    display: none;
+  }
+
+  /* Mobile styles */
   @media (max-width: 768px) {
-    .sidebar {
-      order: 2;
-      height: auto;
-      max-height: 50vh;
+    /* Hide desktop layout on mobile */
+    .desktop-layout {
+      display: none;
     }
 
-    .map-container {
-      order: 1;
-      height: 50vh;
+    /* Show mobile layout */
+    .mobile-layout {
+      display: block;
+      height: calc(100vh - 60px); /* Smaller header on mobile */
+      position: relative;
+    }
+
+    .mobile-map-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 60px; /* Space for drawer peek */
+      background: var(--color-card-bg);
+    }
+
+    /* Remove container padding on mobile */
+    .container {
+      padding: 0;
+      max-width: none;
     }
   }
 </style>

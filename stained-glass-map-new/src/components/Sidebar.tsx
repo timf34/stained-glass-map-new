@@ -8,6 +8,7 @@
 import { useState } from 'react';
 import { useStore } from '@nanostores/react';
 import { selectedArtists, selectedCounties } from '../stores/filters';
+import { selectedLocationId } from '../stores/mapStore';
 
 interface Location {
   id: string;
@@ -163,9 +164,7 @@ export default function Sidebar({ locations, artists, counties }: SidebarProps) 
             key={location.id}
             className="location-item"
             onClick={() => {
-              if (typeof window !== 'undefined' && (window as any).openLocationModal) {
-                (window as any).openLocationModal(location.id);
-              }
+              selectedLocationId.set(location.id);
             }}
           >
             <img
