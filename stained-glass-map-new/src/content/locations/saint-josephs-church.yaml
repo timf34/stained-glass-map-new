@@ -1,0 +1,16 @@
+name: Saint Joseph's Church
+coordinates:
+  - 53.3098657237808
+  - -6.28152653488177
+address: 6 Terenure Rd E, Terenure, Dublin 6, D06 CX23
+county: Dublin
+google_maps_link: https://maps.app.goo.gl/wXJRyiVRA2U9sods5
+description: null
+windows:
+  - title: The Crucifixion
+    artist: harry-clarke
+    year: 1920
+    description: null
+    images:
+      - url: https://i.imgur.com/KWodAHg.jpeg
+        alt: The Crucifixion - Harry Clarke

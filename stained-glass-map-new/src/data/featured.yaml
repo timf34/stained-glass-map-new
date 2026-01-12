@@ -1,0 +1,16 @@
+# Featured Locations - Curated list for sidebar
+# These appear in order on the homepage sidebar
+
+locations:
+  - hugh-lane-gallery              # 3 windows, prominent Dublin location
+  - national-gallery-of-ireland    # 2 windows, major cultural institution
+  - the-honan-chapel               # Notable historic location
+  - an-diseart                     # Kerry location, Harry Clarke work
+  - st-patricks-church-donabate    # Church location
+  - national-museum-of-ireland     # 2 windows, prominent institution
+
+# Add more as the collection grows
+# Aim for 5-8 featured locations
+# Consider geographic diversity (Dublin, Kerry, Cork, etc.)
+# Highlight variety of artists
+# Include both galleries and churches

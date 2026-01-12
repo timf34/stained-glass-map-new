@@ -1,0 +1,16 @@
+name: Our Lady's Hospice
+coordinates:
+  - 53.3266130038167
+  - -6.2814733389336
+address: Harold's Cross, Dublin, D6W RY72
+county: Dublin
+google_maps_link: https://maps.app.goo.gl/9KXg77FhkiKVEmbf9
+description: null
+windows:
+  - title: The Sacred Heart, St. Joseph and Our Lady
+    artist: harry-clarke
+    year: 1928
+    description: null
+    images:
+      - url: https://i.imgur.com/IoqPUTk.jpeg
+        alt: The Sacred Heart, St. Joseph and Our Lady - Harry Clarke

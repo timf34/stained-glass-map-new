@@ -1,0 +1,203 @@
+---
+/**
+ * Featured Sidebar Component
+ *
+ * Displays curated list of featured locations
+ * Reads from featured.yaml data file
+ */
+
+import { getCollection } from 'astro:content';
+import yaml from 'js-yaml';
+import fs from 'fs';
+import path from 'path';
+
+// Load featured list
+const featuredPath = path.join(process.cwd(), 'src/data/featured.yaml');
+const featuredYaml = fs.readFileSync(featuredPath, 'utf8');
+const featuredData = yaml.load(featuredYaml) as { locations: string[] };
+const featuredSlugs = featuredData.locations;
+
+// Load all locations
+const allLocations = await getCollection('locations');
+
+// Get featured locations in order
+const featuredLocations = featuredSlugs
+  .map((slug) => {
+    const location = allLocations.find((loc) => loc.id === slug);
+    return location;
+  })
+  .filter(Boolean);
+---
+
+<aside class="featured-sidebar">
+  <section class="featured-section">
+    <h2 class="section-title">Featured Locations</h2>
+
+    <div class="featured-list">
+      {featuredLocations.map((location) => {
+        // Get first thumbnail
+        const firstWindow = location.data.windows[0];
+        const thumbnailUrl = firstWindow?.images[0]?.url || '/placeholder.jpg';
+
+        return (
+          <button
+            class="featured-item"
+            onclick={`window.openLocationModal && window.openLocationModal('${location.id}')`}
+          >
+            <img
+              src={thumbnailUrl}
+              alt={location.data.name}
+              class="featured-thumb"
+            />
+            <div class="featured-info">
+              <h3 class="featured-name">{location.data.name}</h3>
+              <p class="featured-county">{location.data.county}</p>
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Browse filters will go here (next component) -->
+  <div id="filter-section"></div>
+
+  <!-- About button -->
+  <button class="about-btn">About Project</button>
+</aside>
+
+<style>
+  .featured-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .featured-section {
+    background: transparent;
+    padding: 0;
+  }
+
+  .section-title {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-primary);
+  }
+
+  .featured-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  .featured-list::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .featured-list::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .featured-list::-webkit-scrollbar-thumb {
+    background: var(--color-ornament-gold);
+    border-radius: 2px;
+  }
+
+  .featured-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    transition: opacity 0.2s ease;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-body);
+  }
+
+  .featured-item:hover {
+    opacity: 0.8;
+  }
+
+  .featured-thumb {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .featured-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .featured-name {
+    margin: 0 0 0.15rem 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.3;
+  }
+
+  .featured-county {
+    margin: 0;
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+  }
+
+  .about-btn {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    padding: 0.5rem var(--spacing-sm);
+    background: transparent;
+    border: 1px solid var(--color-ornament-gold);
+    border-radius: 4px;
+    color: var(--color-ornament-gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .about-btn:hover {
+    background: var(--color-ornament-gold);
+    color: white;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .featured-list {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: var(--spacing-sm);
+      padding-bottom: var(--spacing-xs);
+      max-height: none;
+    }
+
+    .featured-item {
+      flex-direction: column;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .featured-thumb {
+      width: 56px;
+      height: 56px;
+    }
+  }
+</style>

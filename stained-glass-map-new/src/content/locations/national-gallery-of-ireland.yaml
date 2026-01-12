@@ -1,0 +1,23 @@
+name: National Gallery of Ireland
+coordinates:
+  - 53.3408176846238
+  - -6.25221321356136
+address: Merrion Square W, Dublin 2, D02 K303
+county: Dublin
+google_maps_link: https://maps.app.goo.gl/tMFKfGrTSPhvJ15z8
+description: null
+windows:
+  - title: Titania and Bottom
+    artist: harry-clarke
+    year: 1922
+    description: null
+    images:
+      - url: https://i.imgur.com/HNOpaqO.jpeg
+        alt: Titania and Bottom - Harry Clarke
+  - title: The Mother of Sorrows
+    artist: harry-clarke
+    year: 1926
+    description: null
+    images:
+      - url: https://i.imgur.com/AwAv1nR.jpeg
+        alt: The Mother of Sorrows - Harry Clarke

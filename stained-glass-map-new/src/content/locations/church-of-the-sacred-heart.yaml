@@ -1,0 +1,16 @@
+name: Church of the Sacred Heart
+coordinates:
+  - 53.3190484657371
+  - -6.23106845011441
+address: Stillorgan Rd, Donnybrook, Dublin 4, D04 HW82
+county: Dublin
+google_maps_link: https://maps.app.goo.gl/fWVEoZQm8sykJfAd7
+description: null
+windows:
+  - title: St. Rita
+    artist: harry-clarke
+    year: 1924
+    description: null
+    images:
+      - url: https://i.imgur.com/bs91OAi.jpeg
+        alt: St. Rita - Harry Clarke

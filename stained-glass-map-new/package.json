@@ -1,0 +1,29 @@
+{
+  "name": "stained-glass-map",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Mapping Ireland's Stained Glass Ecosystem",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.0",
+    "mapbox-gl": "^3.1.0",
+    "nanostores": "^0.10.3",
+    "@nanostores/react": "^0.7.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.0",
+    "@astrojs/react": "^3.6.2",
+    "@types/mapbox-gl": "^3.4.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "typescript": "^5.6.0"
+  }
+}

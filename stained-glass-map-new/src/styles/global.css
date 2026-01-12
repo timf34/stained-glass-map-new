@@ -1,0 +1,345 @@
+/**
+ * Global Styles - Stained Glass Map
+ *
+ * Celtic/Museum aesthetic inspired by NewUI.png mockup
+ */
+
+/* ============================================================================
+   CSS Variables - Color Palette
+   ========================================================================= */
+
+:root {
+  /* Primary Colors - Parchment/Museum aesthetic */
+  --color-parchment: #F5EFE6;
+  --color-text-primary: #2C2416;
+  --color-text-secondary: #666;
+
+  /* Celtic Ornament Colors */
+  --color-ornament-gold: #C9A961;
+  --color-accent-brown: #8B7355;
+
+  /* UI Colors */
+  --color-border: #C9A961;
+  --color-card-bg: #FFFFFF;
+  --color-hover-bg: rgba(201, 169, 97, 0.1);
+
+  /* Glassmorphism - Cathedral Light */
+  --glass-bg: linear-gradient(
+    135deg,
+    rgba(245, 239, 230, 0.85) 0%,
+    rgba(255, 252, 247, 0.75) 50%,
+    rgba(245, 239, 230, 0.85) 100%
+  );
+  --glass-bg-warm: linear-gradient(
+    145deg,
+    rgba(201, 169, 97, 0.12) 0%,
+    rgba(255, 252, 247, 0.7) 30%,
+    rgba(245, 239, 230, 0.75) 70%,
+    rgba(201, 169, 97, 0.08) 100%
+  );
+  --glass-border: rgba(201, 169, 97, 0.4);
+  --glass-shadow: 0 8px 32px rgba(44, 36, 22, 0.12),
+                  0 2px 8px rgba(201, 169, 97, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --glass-shadow-hover: 0 12px 40px rgba(44, 36, 22, 0.18),
+                        0 4px 12px rgba(201, 169, 97, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --glass-blur: 12px;
+  --glass-inner-glow: inset 0 0 20px rgba(201, 169, 97, 0.08);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 1rem;      /* 16px */
+  --spacing-md: 1.5rem;    /* 24px */
+  --spacing-lg: 2rem;      /* 32px */
+  --spacing-xl: 3rem;      /* 48px */
+  --spacing-2xl: 4rem;     /* 64px */
+
+  /* Layout */
+  --max-width: 1600px;
+  --sidebar-width: 320px;
+  --corner-size: 120px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* ============================================================================
+   Reset & Base Styles
+   ========================================================================= */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-parchment);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ============================================================================
+   Typography
+   ========================================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--color-accent-brown);
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: var(--color-ornament-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+}
+
+a {
+  color: var(--color-ornament-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-brown);
+}
+
+/* ============================================================================
+   Celtic Corner Ornaments
+   ========================================================================= */
+
+.celtic-corner {
+  position: fixed;
+  width: var(--corner-size);
+  height: var(--corner-size);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+}
+
+.celtic-corner-top-left {
+  top: 0;
+  left: 0;
+}
+
+.celtic-corner-top-right {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.celtic-corner-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.celtic-corner-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: scale(-1);
+}
+
+/* ============================================================================
+   Layout Utilities
+   ========================================================================= */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  height: calc(100vh - 60px); /* Subtract header height */
+  overflow: hidden;
+}
+
+/* ============================================================================
+   Buttons & Interactive Elements
+   ========================================================================= */
+
+button,
+.btn {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+button:hover,
+.btn:hover {
+  background: var(--color-ornament-gold);
+  color: var(--color-card-bg);
+  border-color: var(--color-ornament-gold);
+}
+
+button:active,
+.btn:active {
+  transform: translateY(1px);
+}
+
+button:disabled,
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   Cards & Containers
+   ========================================================================= */
+
+.card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: var(--spacing-md);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(201, 169, 97, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ============================================================================
+   Scrollbars (Custom - Optional)
+   ========================================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-parchment);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ornament-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-brown);
+}
+
+/* ============================================================================
+   Mobile Responsive
+   ========================================================================= */
+
+@media (max-width: 768px) {
+  :root {
+    --corner-size: 60px;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
+
+  .celtic-corner {
+    opacity: 0.3;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .celtic-corner {
+    display: none; /* Hide corners on very small screens */
+  }
+}
+
+/* ============================================================================
+   Mapbox GL Overrides
+   ========================================================================= */
+
+.mapboxgl-popup-content {
+  font-family: var(--font-body);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: var(--spacing-sm);
+}
+
+.mapboxgl-popup-close-button {
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+  padding: var(--spacing-xs);
+}
+
+.mapboxgl-popup-close-button:hover {
+  background: var(--color-hover-bg);
+}
+
+.mapboxgl-ctrl-group {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mapboxgl-ctrl-group button {
+  border: none;
+  background: var(--color-card-bg);
+}
+
+.mapboxgl-ctrl-group button:hover {
+  background: var(--color-hover-bg);
+}

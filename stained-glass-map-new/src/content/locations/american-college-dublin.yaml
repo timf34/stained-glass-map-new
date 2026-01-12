@@ -1,0 +1,18 @@
+name: American College Dublin
+coordinates:
+  - 53.3412477074555
+  - -6.25041784019337
+address: 1 Merrion Square N, Dublin 2, D02 NH98
+county: Dublin
+google_maps_link: https://maps.app.goo.gl/QYqojQhmzse4vcq28
+description: null
+windows:
+  - title: The Happy Prince
+    artist: peadar-lamb
+    year: 1995
+    description: null
+    images:
+      - url: https://i.imgur.com/QQO4VkZ.jpeg
+        alt: The Happy Prince - Peadar Lamb
+      - url: https://i.imgur.com/5oSMLOc.jpeg
+        alt: The Happy Prince - Peadar Lamb (high quality)

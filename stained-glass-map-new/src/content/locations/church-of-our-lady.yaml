@@ -1,0 +1,16 @@
+name: Church of Our Lady
+coordinates:
+  - 53.1727141440515
+  - -6.52975677228585
+address: Main St, Blessington, Co. Wicklow
+county: Dublin
+google_maps_link: https://maps.app.goo.gl/sCxKk1PsT9E2UdEe7
+description: null
+windows:
+  - title: 'The Little Flower '
+    artist: harry-clarke
+    year: 1924
+    description: null
+    images:
+      - url: https://i.imgur.com/ZDmF3oE.png
+        alt: The Little Flower  - Harry Clarke

@@ -1,0 +1,30 @@
+name: Hugh Lane Gallery
+coordinates:
+  - 53.3541770777581
+  - -6.26466423213288
+address: Charlemont House, Parnell Square N, Rotunda, Dublin 1, D01 F2X9
+county: Dublin
+google_maps_link: 'https://maps.app.goo.gl/g2b9vkY5ZubbRnj37 '
+description: null
+windows:
+  - title: '''"Mr Gilhooley by Liam O''Flaherty" for the Geneva Window'''
+    artist: harry-clarke
+    year: 1929
+    description: 'TBC '
+    images:
+      - url: https://i.imgur.com/GdzHYPQ.jpeg
+        alt: '''"Mr Gilhooley by Liam O''Flaherty" for the Geneva Window'' - Harry Clarke'
+  - title: The Deposition
+    artist: evie-hone
+    year: 1953
+    description: https://www.facebook.com/photo.php?fbid=4437139526375216&id=109110102511535&set=a.142685499153995
+    images:
+      - url: https://i.imgur.com/Ebt86t1.jpeg
+        alt: The Deposition - Evie Hone
+  - title: The Cock
+    artist: evie-hone
+    year: 1948
+    description: null
+    images:
+      - url: https://i.imgur.com/6nK2ciu.png
+        alt: The Cock - Evie Hone

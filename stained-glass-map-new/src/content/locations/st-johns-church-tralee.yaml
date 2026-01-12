@@ -1,0 +1,16 @@
+name: St. John's Church Tralee
+coordinates:
+  - 52.2680223782556
+  - -9.70298798832507
+address: Castle St, Tralee, Co. Kerry
+county: Kerry
+google_maps_link: https://maps.app.goo.gl/JMFPE5fMM9g5GH8d7
+description: null
+windows:
+  - title: Window of Reconciliation
+    artist: thomas-denny
+    year: 2017
+    description: null
+    images:
+      - url: https://i.imgur.com/xE9OXTs.jpeg
+        alt: Window of Reconciliation - Thomas Denny

@@ -1,0 +1,16 @@
+name: Manresa Jesuit Centre of Spirituality
+coordinates:
+  - 53.3662515837281
+  - -6.17437388798918
+address: 426 Clontarf Rd, Clontarf East, Dublin
+county: Dublin
+google_maps_link: https://maps.app.goo.gl/fsfsGw1q8pu7NRk69
+description: null
+windows:
+  - title: 'The Sacred Heart and Jesuit Saints '
+    artist: evie-hone
+    year: 1945
+    description: 'TBC. Source: https://www.manresa.ie/about/manresa-campus/evie-hone-at-manresa'
+    images:
+      - url: https://i.imgur.com/MwULkQY.jpeg
+        alt: The Sacred Heart and Jesuit Saints  - Evie Hone

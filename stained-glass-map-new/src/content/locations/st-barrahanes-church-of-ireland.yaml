@@ -1,0 +1,16 @@
+name: St. Barrahane's Church of Ireland
+coordinates:
+  - 51.5296543534772
+  - -9.17348542245282
+address: Castletownsend, Castletownshend, Co. Cork, P81 AH51
+county: Cork
+google_maps_link: https://maps.app.goo.gl/ya5HAxGjTP8f13C26
+description: null
+windows:
+  - title: The Nativity
+    artist: harry-clarke
+    year: 1918
+    description: null
+    images:
+      - url: https://i.imgur.com/hud2lsW.png
+        alt: The Nativity - Harry Clarke

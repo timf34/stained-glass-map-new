@@ -1,0 +1,16 @@
+name: An Diseart
+coordinates:
+  - 52.1419711763522
+  - -10.2705965421965
+address: Green St, Farrannakilla, Dingle, Co. Kerry
+county: Kerry
+google_maps_link: https://maps.app.goo.gl/PFr7uByEcFMrNAKa8
+description: null
+windows:
+  - title: Jesus Appears to Mary Magdalene
+    artist: harry-clarke
+    year: 1924
+    description: null
+    images:
+      - url: https://i.imgur.com/e2lWBuL.jpeg
+        alt: Jesus Appears to Mary Magdalene - Harry Clarke

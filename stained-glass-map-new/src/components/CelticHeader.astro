@@ -1,0 +1,95 @@
+---
+/**
+ * Celtic Header Component
+ *
+ * Displays the ornamental title header with:
+ * - Celtic header title SVG
+ * - Subtitle text
+ * - "Add a Location" button
+ */
+---
+
+<header class="header">
+  <h2 class="header-title">Stained Glass Map</h2>
+
+  <!-- Add Location Button -->
+  <a
+    href="https://forms.google.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="add-location-btn"
+  >
+    Add a Location
+  </a>
+</header>
+
+<style>
+  .header {
+    position: relative;
+    padding: var(--spacing-xs) var(--spacing-xl);
+    text-align: center;
+    background: var(--color-parchment);
+    border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-ornament-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .add-location-btn {
+    position: absolute;
+    right: var(--spacing-xl);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    display: inline-block;
+    z-index: 20;
+  }
+
+  .add-location-btn:hover {
+    background: var(--color-ornament-gold);
+    color: var(--color-card-bg);
+    border-color: var(--color-ornament-gold);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(201, 169, 97, 0.3);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .header {
+      padding: var(--spacing-xs) var(--spacing-md);
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .header-title {
+      font-size: 1.25rem;
+    }
+
+    .add-location-btn {
+      position: static;
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-title {
+      font-size: 1.1rem;
+    }
+  }
+</style>

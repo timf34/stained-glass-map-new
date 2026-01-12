@@ -1,0 +1,16 @@
+name: St Patrick’s Church, Kilmaine
+coordinates:
+  - 53.5798709554215
+  - -9.12853375719283
+address: Kilmaine, Co Mayo
+county: Mayo
+google_maps_link: https://maps.app.goo.gl/GFVBVNHz1PJyHMNG8
+description: null
+windows:
+  - title: The Adoration of the Magi
+    artist: harry-clarke
+    year: 1926
+    description: null
+    images:
+      - url: https://i.imgur.com/6I1iWhj.jpeg
+        alt: The Adoration of the Magi - Harry Clarke

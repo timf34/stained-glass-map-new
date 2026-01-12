@@ -1,0 +1,23 @@
+name: National Museum of Ireland
+coordinates:
+  - 53.3480753617059
+  - -6.2851049718948
+address: Collins Barracks, Benburb St, Stoneybatter, Dublin, D07 XKV4
+county: Dublin
+google_maps_link: https://maps.app.goo.gl/RyTvhmm7CP4qUKaz7
+description: null
+windows:
+  - title: A Meeting
+    artist: harry-clarke
+    year: 1918
+    description: null
+    images:
+      - url: https://i.imgur.com/u4vpUy7.jpeg
+        alt: A Meeting - Harry Clarke
+  - title: The Unhappy Judas
+    artist: harry-clarke
+    year: 1918
+    description: null
+    images:
+      - url: https://i.imgur.com/bsrINMl.jpeg
+        alt: The Unhappy Judas - Harry Clarke

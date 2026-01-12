@@ -1,0 +1,16 @@
+name: The Honan Chapel
+coordinates:
+  - 51.8936216216241
+  - -8.48984062317702
+address: College Rd, University College, Cork, T12 VH32
+county: Cork
+google_maps_link: https://maps.app.goo.gl/ManTQdsyJwjhuv7o8
+description: null
+windows:
+  - title: 'St. Gobnait '
+    artist: harry-clarke
+    year: 1916
+    description: null
+    images:
+      - url: https://i.imgur.com/dfvdRCZ.jpeg
+        alt: St. Gobnait  - Harry Clarke

@@ -1,0 +1,150 @@
+---
+/**
+ * Homepage - Stained Glass Map
+ *
+ * Main page with:
+ * - Celtic header
+ * - Featured sidebar
+ * - Interactive map
+ * - Collapsible filters
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CelticHeader from '../components/CelticHeader.astro';
+import Sidebar from '../components/Sidebar';
+import MapWithModal from '../components/MapWithModal';
+import { getCollection } from 'astro:content';
+
+// Load all content
+const locations = await getCollection('locations');
+const artists = await getCollection('artists');
+
+// Prepare data for Map component
+const mapLocations = locations.map((loc) => {
+  // Extract unique artist slugs from windows
+  const artistSlugs = [...new Set(
+    loc.data.windows
+      .map(w => w.artist)
+      .filter(Boolean) as string[]
+  )];
+
+  // Swap coordinates from [lat, lng] to [lng, lat] for Mapbox
+  const [lat, lng] = loc.data.coordinates;
+
+  return {
+    id: loc.id,
+    name: loc.data.name,
+    coordinates: [lng, lat] as [number, number],
+    county: loc.data.county,
+    artists: artistSlugs,
+  };
+});
+
+// Prepare data for FilterControls
+const artistOptions = artists
+  .map((a) => ({
+    slug: a.data.slug,
+    name: a.data.name,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+const countyOptions = [...new Set(locations.map((loc) => loc.data.county))]
+  .sort();
+
+// Prepare location data for sidebar (with thumbnails)
+const sidebarLocations = locations.map((loc) => {
+  const artistSlugs = [...new Set(
+    loc.data.windows
+      .map(w => w.artist)
+      .filter(Boolean) as string[]
+  )];
+  const firstWindow = loc.data.windows[0];
+  const thumbnailUrl = firstWindow?.images[0]?.url || '/placeholder.jpg';
+
+  return {
+    id: loc.id,
+    name: loc.data.name,
+    county: loc.data.county,
+    artists: artistSlugs,
+    thumbnailUrl,
+  };
+});
+
+// Prepare full location data for modal
+const fullLocations = locations.map((loc) => ({
+  id: loc.id,
+  name: loc.data.name,
+  address: loc.data.address,
+  county: loc.data.county,
+  description: loc.data.description,
+  google_maps_link: loc.data.google_maps_link,
+  windows: loc.data.windows,
+}));
+
+// Create artist name mapping (slug → name) for modal display
+const artistNames = Object.fromEntries(
+  artists.map((a) => [a.data.slug, a.data.name])
+);
+
+// Get Mapbox token from environment
+const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
+---
+
+<BaseLayout title="Home">
+  <CelticHeader />
+
+  <main class="container">
+    <div class="main-grid">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <Sidebar
+          locations={sidebarLocations}
+          artists={artistOptions}
+          counties={countyOptions}
+          client:load
+        />
+      </div>
+
+      <!-- Map Area -->
+      <div class="map-container">
+        <MapWithModal
+          locations={mapLocations}
+          fullLocations={fullLocations}
+          artistNames={artistNames}
+          mapboxToken={mapboxToken}
+          client:load
+        />
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .map-container {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      order: 2;
+      height: auto;
+      max-height: 50vh;
+    }
+
+    .map-container {
+      order: 1;
+      height: 50vh;
+    }
+  }
+</style>

@@ -1,0 +1,19 @@
+name: St. Brigid's Church Kilbride
+coordinates:
+  - 52.821460418508
+  - -6.1668008758726
+address: Saint Bridget's Church, Kilbride, Ballinaheese, Arklow, Co. Wicklow
+county: Wicklow
+google_maps_link: |-
+  https://maps.app.goo.gl/94gELao77rjVZBWs6
+
+   
+description: null
+windows:
+  - title: Ecce Homo
+    artist: harry-clarke
+    year: 1918
+    description: TBC
+    images:
+      - url: https://i.imgur.com/9IcHsoC.jpeg
+        alt: Ecce Homo - Harry Clarke

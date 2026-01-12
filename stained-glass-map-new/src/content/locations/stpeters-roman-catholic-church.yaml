@@ -1,0 +1,16 @@
+name: 'St.Peter''s Roman Catholic Church '
+coordinates:
+  - 53.3606817609833
+  - -6.27661371028902
+address: Saint Peter's Church Presbytery, Cabra Rd, Phibsborough, Dublin, D07 N152
+county: Dublin
+google_maps_link: https://maps.app.goo.gl/4jTqHbFqyFJCEbZf6
+description: null
+windows:
+  - title: The Sacred Heart, St. Margaret and St. John Eudes
+    artist: harry-clarke
+    year: 1919
+    description: null
+    images:
+      - url: https://i.imgur.com/8LR2iih.jpeg
+        alt: The Sacred Heart, St. Margaret and St. John Eudes - Harry Clarke
