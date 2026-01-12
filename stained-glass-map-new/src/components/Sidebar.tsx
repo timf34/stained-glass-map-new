@@ -358,8 +358,8 @@ export default function Sidebar({ locations, artists, counties }: SidebarProps) 
         }
 
         .location-thumb {
-          width: 48px;
-          height: 48px;
+          width: 64px;
+          height: 64px;
           object-fit: cover;
           border-radius: 4px;
           flex-shrink: 0;
