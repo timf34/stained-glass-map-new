@@ -12,12 +12,12 @@ windows:
     year: 1918
     description: null
     images:
-      - url: https://i.imgur.com/u4vpUy7.jpeg
+      - url: /images/locations/a_meeting.jpg
         alt: A Meeting - Harry Clarke
   - title: The Unhappy Judas
     artist: harry-clarke
     year: 1918
     description: null
     images:
-      - url: https://i.imgur.com/bsrINMl.jpeg
+      - url: /images/locations/the_unhappy_judas.jpg
         alt: The Unhappy Judas - Harry Clarke

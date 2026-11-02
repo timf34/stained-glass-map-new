@@ -1,0 +1,49 @@
+name: Saints Peter and Paul's Church, Balbriggan
+coordinates:
+  - 53.60418
+  - -6.18384
+address: Dublin Street, Balbriggan, Co. Dublin
+county: Dublin
+google_maps_link: https://www.google.com/maps/search/?api=1&query=53.60418,-6.18384
+description: >-
+  Two original Harry Clarke windows flank the altar: The Visitation and The Widow's Son. Commissioned in 1923,
+  they reward a close look at the jewel-like colour and the smaller scenes beneath the main figures.
+visit_note: >-
+  An active place of worship. Check local access before travelling and avoid services when viewing or
+  photographing the windows.
+sources:
+  - label: 'Fingal County Council: Harry Clarke windows'
+    url: https://www.fingal.ie/directory/amenities/heritage/harry-clarke-stained-glass-windows
+  - label: 'Wikimedia Commons: church location'
+    url: https://commons.wikimedia.org/wiki/Category:St_Peter_and_Paul%27s_Church,_Balbriggan
+windows:
+  - title: The Visitation
+    artist: harry-clarke
+    year: 1924
+    description: Mary visits Elizabeth in this two-light window to the right of the altar.
+    images:
+      - url: /images/researched/balbriggan-visitation.webp
+        alt: The Visitation by Harry Clarke at Balbriggan
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:02_The_Visitation,_Harry_Clarke,_Church_of_SS_Peter_%26_Paul_Balbriggan,_Stained_Glass.jpg
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/9/97/02_The_Visitation%2C_Harry_Clarke%2C_Church_of_SS_Peter_%26_Paul_Balbriggan%2C_Stained_Glass.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.
+  - title: The Widow's Son
+    artist: harry-clarke
+    year: 1924
+    description: Christ raises the son of the widow of Nain. This two-light window is to the left of the altar.
+    images:
+      - url: /images/researched/balbriggan-widows-son.webp
+        alt: The Widow's Son by Harry Clarke at Balbriggan
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:04_The_Widow%27s_Son,_Harry_Clarke,_Church_of_SS_Peter_%26_Paul_Balbriggan,_Stained_Glass.jpg
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/f/fc/04_The_Widow%27s_Son%2C_Harry_Clarke%2C_Church_of_SS_Peter_%26_Paul_Balbriggan%2C_Stained_Glass.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.

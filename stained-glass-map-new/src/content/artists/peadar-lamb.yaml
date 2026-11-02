@@ -2,4 +2,10 @@ name: Peadar Lamb
 slug: peadar-lamb
 birth_year: 1966
 death_year: null
-biography: Modern dude, very good
+biography: >-
+  Peadar Lamb is an Irish artist working in stained glass, from large architectural commissions to
+  smaller wall-based pieces. He studied at the National College of Art and Design in Dublin and
+  established his own studio after further study and travel.
+sources:
+  - label: Corning Museum of Glass
+    url: https://people.cmog.org/bio/peadar-lamb

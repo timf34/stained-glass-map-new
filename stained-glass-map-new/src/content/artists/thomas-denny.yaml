@@ -2,4 +2,9 @@ name: Thomas Denny
 slug: thomas-denny
 birth_year: 1956
 death_year: null
-biography: Biography coming soon.
+biography: >-
+  Thomas Denny is a British stained-glass artist and painter. His work includes windows for churches
+  and cathedrals, including the Window of Reconciliation at St. John’s Church in Tralee.
+sources:
+  - label: Artist’s website
+    url: https://www.thomasdenny.co.uk/

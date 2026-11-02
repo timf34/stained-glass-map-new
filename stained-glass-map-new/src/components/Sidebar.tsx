@@ -1,3 +1,4 @@
+import '../styles/Sidebar.css';
 /**
  * Sidebar Component
  *
@@ -159,6 +160,7 @@ export default function Sidebar({ locations, artists, counties }: SidebarProps) 
 
       {/* Locations List */}
       <div className="locations-list">
+        {filteredLocations.length === 0 && <p className="empty-state">No locations match these filters. Try a different artist or county.</p>}
         {filteredLocations.map((location) => (
           <button
             key={location.id}
@@ -171,6 +173,7 @@ export default function Sidebar({ locations, artists, counties }: SidebarProps) 
               src={location.thumbnailUrl}
               alt={location.name}
               className="location-thumb"
+              loading="lazy"
             />
             <div className="location-info">
               <h3 className="location-name">{location.name}</h3>
@@ -180,212 +183,7 @@ export default function Sidebar({ locations, artists, counties }: SidebarProps) 
         ))}
       </div>
 
-      <style>{`
-        .sidebar-content {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-          gap: var(--spacing-sm);
-        }
-
-        .filters {
-          display: flex;
-          flex-direction: column;
-          gap: var(--spacing-sm);
-          padding-bottom: var(--spacing-sm);
-          border-bottom: 1px solid rgba(201, 169, 97, 0.3);
-        }
-
-        .dropdown {
-          position: relative;
-        }
-
-        .dropdown-toggle {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0.5rem 0.75rem;
-          background: rgba(255, 255, 255, 0.5);
-          border: 1px solid rgba(201, 169, 97, 0.4);
-          border-radius: 4px;
-          font-family: var(--font-body);
-          font-size: 0.85rem;
-          color: var(--color-text-primary);
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-
-        .dropdown-toggle:hover {
-          border-color: var(--color-ornament-gold);
-          background: rgba(255, 255, 255, 0.7);
-        }
-
-        .dropdown-toggle.active {
-          border-color: var(--color-ornament-gold);
-          background: rgba(201, 169, 97, 0.1);
-        }
-
-        .dropdown-arrow {
-          font-size: 0.6rem;
-          color: var(--color-text-secondary);
-        }
-
-        .dropdown-menu {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          margin-top: 4px;
-          background: var(--color-card-bg);
-          border: 1px solid rgba(201, 169, 97, 0.4);
-          border-radius: 4px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          max-height: 200px;
-          overflow-y: auto;
-          z-index: 100;
-        }
-
-        .dropdown-menu::-webkit-scrollbar {
-          width: 4px;
-        }
-
-        .dropdown-menu::-webkit-scrollbar-track {
-          background: transparent;
-        }
-
-        .dropdown-menu::-webkit-scrollbar-thumb {
-          background: var(--color-ornament-gold);
-          border-radius: 2px;
-        }
-
-        .dropdown-item {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.5rem 0.75rem;
-          font-size: 0.85rem;
-          color: var(--color-text-primary);
-          cursor: pointer;
-          transition: background 0.15s ease;
-        }
-
-        .dropdown-item:hover {
-          background: rgba(201, 169, 97, 0.1);
-        }
-
-        .dropdown-item input[type="checkbox"] {
-          cursor: pointer;
-          accent-color: var(--color-ornament-gold);
-          width: 14px;
-          height: 14px;
-          flex-shrink: 0;
-        }
-
-        .clear-btn {
-          padding: 0.4rem 0.8rem;
-          background: transparent;
-          border: 1px solid var(--color-ornament-gold);
-          border-radius: 4px;
-          color: var(--color-ornament-gold);
-          font-size: 0.75rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          align-self: flex-start;
-        }
-
-        .clear-btn:hover {
-          background: var(--color-ornament-gold);
-          color: white;
-        }
-
-        .locations-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .locations-count {
-          font-size: 0.8rem;
-          font-weight: 600;
-          color: var(--color-text-secondary);
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-
-        .locations-list {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-          overflow-y: auto;
-          padding-right: 4px;
-        }
-
-        .locations-list::-webkit-scrollbar {
-          width: 4px;
-        }
-
-        .locations-list::-webkit-scrollbar-track {
-          background: transparent;
-        }
-
-        .locations-list::-webkit-scrollbar-thumb {
-          background: var(--color-ornament-gold);
-          border-radius: 2px;
-        }
-
-        .location-item {
-          display: flex;
-          align-items: center;
-          gap: var(--spacing-sm);
-          padding: 0;
-          background: transparent;
-          border: none;
-          text-decoration: none;
-          color: var(--color-text-primary);
-          transition: opacity 0.2s ease;
-          width: 100%;
-          text-align: left;
-          cursor: pointer;
-          font-family: var(--font-body);
-        }
-
-        .location-item:hover {
-          opacity: 0.7;
-        }
-
-        .location-thumb {
-          width: 64px;
-          height: 64px;
-          object-fit: cover;
-          border-radius: 4px;
-          flex-shrink: 0;
-        }
-
-        .location-info {
-          flex: 1;
-          min-width: 0;
-        }
-
-        .location-name {
-          margin: 0 0 0.1rem 0;
-          font-size: 0.82rem;
-          font-weight: 600;
-          color: var(--color-text-primary);
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          line-height: 1.3;
-        }
-
-        .location-county {
-          margin: 0;
-          font-size: 0.7rem;
-          color: var(--color-text-secondary);
-        }
-      `}</style>
+      <a className="credits-link" href="/credits">Photograph credits & licences ↗</a>
     </div>
   );
 }

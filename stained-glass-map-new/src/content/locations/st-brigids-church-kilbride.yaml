@@ -15,5 +15,5 @@ windows:
     year: 1918
     description: TBC
     images:
-      - url: https://i.imgur.com/9IcHsoC.jpeg
+      - url: /images/photo-unavailable.svg # Original photo: https://i.imgur.com/9IcHsoC.jpeg
         alt: Ecce Homo - Harry Clarke

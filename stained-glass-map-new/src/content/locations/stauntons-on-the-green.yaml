@@ -12,5 +12,5 @@ windows:
     year: 1927
     description: null
     images:
-      - url: https://i.imgur.com/5pbXDHT.jpeg
+      - url: /images/photo-unavailable.svg # Original photo: https://i.imgur.com/5pbXDHT.jpeg
         alt: The Blessed Julie and Two Children - Harry Clarke

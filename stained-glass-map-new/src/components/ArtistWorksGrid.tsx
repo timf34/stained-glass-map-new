@@ -1,3 +1,4 @@
+import '../styles/ArtistWorksGrid.css';
 /**
  * Artist Works Grid Component
  *
@@ -102,90 +103,7 @@ export default function ArtistWorksGrid({
         onClose={closeModal}
       />
 
-      <style>{`
-        .works-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: var(--spacing-md);
-        }
 
-        .work-card {
-          background: white;
-          border-radius: 12px;
-          overflow: hidden;
-          text-decoration: none;
-          color: inherit;
-          transition: all 0.3s ease;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-          border: 1px solid rgba(201, 169, 97, 0.2);
-          cursor: pointer;
-          text-align: left;
-          padding: 0;
-          width: 100%;
-        }
-
-        .work-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 8px 24px rgba(201, 169, 97, 0.2);
-          border-color: var(--color-ornament-gold);
-        }
-
-        .work-image-container {
-          aspect-ratio: 4/3;
-          overflow: hidden;
-        }
-
-        .work-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.3s ease;
-        }
-
-        .work-card:hover .work-image {
-          transform: scale(1.05);
-        }
-
-        .work-info {
-          padding: var(--spacing-sm) var(--spacing-md);
-          border-top: 2px solid rgba(201, 169, 97, 0.2);
-        }
-
-        .work-title {
-          margin: 0 0 0.25rem 0;
-          font-size: 1rem;
-          font-weight: 600;
-          color: var(--color-text-primary);
-          line-height: 1.3;
-        }
-
-        .work-location {
-          margin: 0;
-          font-size: 0.9rem;
-          color: var(--color-ornament-gold);
-          font-weight: 500;
-        }
-
-        .work-county {
-          margin: 0.25rem 0 0 0;
-          font-size: 0.8rem;
-          color: var(--color-text-secondary);
-        }
-
-        .work-year {
-          margin: 0.5rem 0 0 0;
-          font-size: 0.8rem;
-          color: var(--color-text-secondary);
-          font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-          .works-grid {
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: var(--spacing-sm);
-          }
-        }
-      `}</style>
     </>
   );
 }

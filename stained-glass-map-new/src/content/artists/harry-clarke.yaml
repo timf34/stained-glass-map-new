@@ -2,4 +2,10 @@ name: Harry Clarke
 slug: harry-clarke
 birth_year: 1889
 death_year: 1931
-biography: The GOAT
+biography: >-
+  Harry Clarke was an Irish stained-glass artist and illustrator known for richly coloured windows,
+  elongated figures and intricate decorative detail. His church windows include The Visitation and
+  The Widow’s Son in Balbriggan, alongside commissions throughout Ireland and abroad.
+sources:
+  - label: Fingal County Council
+    url: https://www.fingal.ie/directory/amenities/heritage/harry-clarke-stained-glass-windows

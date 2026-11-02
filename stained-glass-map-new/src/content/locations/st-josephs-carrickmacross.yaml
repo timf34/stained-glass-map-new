@@ -1,0 +1,50 @@
+name: St. Joseph's Church, Carrickmacross
+coordinates:
+  - 53.97652
+  - -6.715028
+address: O'Neill Street, Carrickmacross, Co. Monaghan
+county: Monaghan
+google_maps_link: https://www.google.com/maps/search/?api=1&query=53.97652,-6.715028
+description: >-
+  This Gothic Revival church contains a substantial collection of glass by Harry Clarke and his studio. The
+  Saint Ceara window was designed and partly made by Clarke himself; other windows were produced under his
+  supervision.
+visit_note: >-
+  An active place of worship. Check local access before travelling and avoid services when viewing or
+  photographing the windows.
+sources:
+  - label: 'Harry Clarke catalogue: Carrickmacross'
+    url: https://www.harryclarke.net/carrickmacross_home
+  - label: National Inventory of Architectural Heritage
+    url: https://www.buildingsofireland.ie/places-to-visit/monaghan/carrickmacross-saint-josephs-catholic-church/
+  - label: Church location photograph
+    url: >-
+      https://commons.wikimedia.org/wiki/File:St_Joseph%27s_Catholic_Church,_O%27Neill_Street,_Carrickmacross_-_geograph.org.uk_-_5020918.jpg
+windows:
+  - title: Saint Ceara
+    artist: harry-clarke
+    year: 1925
+    description: >-
+      Look closely at the finely drawn faces, elaborate garments and small narrative details. The gallery
+      includes a closer view of the window.
+    images:
+      - url: /images/researched/carrickmacross-st-ceara.webp
+        alt: Saint Ceara window by Harry Clarke at Carrickmacross
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:01_St._Ceara_by_Harry_Clarke,_St._Joseph%27s_Church,_Carrickmacross,_Stained_Glass_Window.jpg
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/e/e6/01_St._Ceara_by_Harry_Clarke%2C_St._Joseph%27s_Church%2C_Carrickmacross%2C_Stained_Glass_Window.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.
+      - url: /images/researched/carrickmacross-st-ceara-detail.webp
+        alt: Close-up of Saint Ceara window at Carrickmacross
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:02_St._Ceara_Detail_1_by_Harry_Clarke,_St._Joseph%27s_Church,_Carrickmacross,_Stained_Glass_Window.png
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/1/14/02_St._Ceara_Detail_1_by_Harry_Clarke%2C_St._Joseph%27s_Church%2C_Carrickmacross%2C_Stained_Glass_Window.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.

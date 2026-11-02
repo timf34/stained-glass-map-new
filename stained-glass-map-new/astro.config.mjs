@@ -7,5 +7,5 @@ export default defineConfig({
     react() // For interactive islands (Map, Filters, Modals)
   ],
   output: 'static', // Fully static site
-  site: 'https://stained-glass-map.vercel.app', // Update with your domain
+  site: 'https://stainedglassmap.com', // Update with your domain
 });

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const locations = await getCollection('locations');
+const photos = locations.flatMap(location => location.data.windows.flatMap(window => window.images.filter(photo => photo.credit).map(photo => ({...photo, title: window.title, location: location.data.name}))));
+---
+<BaseLayout title="Photograph credits">
+  <main class="credits-page">
+    <a href="/">← Back to the map</a>
+    <h1>Photograph credits</h1>
+    <p>These photographs are shared by their creators through Wikimedia Commons. Each photograph retains its own licence. Website copies have been resized and converted to WebP, with their composition unchanged. Open the source page for the original file and full attribution details.</p>
+    <p>The map also contains photographs restored from the project's original collection; those are not covered by the licences listed below.</p>
+    <div class="credits-grid">
+      {photos.map(photo => <article>
+        <img src={photo.url} alt={photo.alt || photo.title} loading="lazy" />
+        <div><h2>{photo.title}</h2><p>{photo.location}</p>
+        <p>Photograph by <a href={photo.source_url}>{photo.credit}</a> · <a href={photo.license_url}>{photo.license}</a></p>
+        <a href={photo.source_url}>Source and original photograph ↗</a></div>
+      </article>)}
+    </div>
+  </main>
+</BaseLayout>
+<style>
+ :global(body) { height: auto; overflow: auto; position: static; }
+ :global(html) { overflow: auto; position: static; }
+ .credits-page { max-width: 1000px; padding: 48px 24px; margin: auto; }
+ h1 { margin-top: 32px; }
+ p { line-height: 1.7; }
+ .credits-grid { display: grid; gap: 20px; margin-top: 32px; }
+ article { display: flex; gap: 24px; padding: 20px; background: white; border: 1px solid #dfd3ba; border-radius: 8px; }
+ article img { width: 110px; height: 170px; object-fit: contain; background: #181d22; }
+ h2 { font-size: 1.15rem; text-transform: none; }
+ a { color: #785711; text-decoration: underline; }
+ @media(max-width:500px) { article { gap: 14px; padding: 14px; } article img { width: 70px; height: 130px; } }
+</style>

@@ -11,46 +11,44 @@
 
 <header class="header">
   <a href="/" class="header-title-link">
-    <h2 class="header-title">Stained Glass Map</h2>
+    <h1 class="header-title">Stained Glass Map</h1>
+    <span class="header-subtitle">Discover Ireland, one window at a time</span>
   </a>
 
   <!-- Navigation -->
   <nav class="header-nav">
     <a href="/about" class="nav-link">About</a>
     <a href="/artists" class="nav-link">Artists</a>
-    <a
-      href="https://forms.google.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="nav-link nav-link-primary"
-    >
-      Add a Location
-    </a>
+
   </nav>
 </header>
 
 <style>
+  .header-subtitle { display: block; color: #736956; font-size: .75rem; margin-top: 4px; letter-spacing: .03em; }
+  @media (max-width: 600px) { .header-subtitle { display: none; } }
   .header {
     position: relative;
     padding: var(--spacing-xs) var(--spacing-xl);
-    text-align: center;
+    text-align: left;
     background: var(--color-parchment);
     border-bottom: 1px solid rgba(201, 169, 97, 0.2);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .header-title-link {
     text-decoration: none;
+    position: relative;
+    z-index: 2;
   }
 
   .header-title {
     margin: 0;
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: clamp(1.1rem, 2.6vw, 1.7rem);
     font-weight: 700;
-    color: var(--color-ornament-gold);
+    color: #84631f;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     transition: color 0.2s ease;
@@ -61,8 +59,7 @@
   }
 
   .header-nav {
-    position: absolute;
-    right: 100px;
+    position: static;
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);

@@ -10,7 +10,19 @@ windows:
   - title: St. Rita
     artist: harry-clarke
     year: 1924
-    description: null
+    description: >-
+      Saint Rita appears in the left-hand light of the photographed group. The centre light is by William
+      McBride.
     images:
-      - url: https://i.imgur.com/bs91OAi.jpeg
-        alt: St. Rita - Harry Clarke
+      - url: /images/researched/donnybrook-st-rita.webp
+        alt: St. Rita on the left, St. Bernard on the right, and Mary Magdalene in the centre at Donnybrook
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:Harry_Clarke_William_McBride_Window,_St._Rita,_St._Bernard,_Mary_Magdalene_Stained_Glass,_Church_of_the_Sacred_Heart_Donnybrook,_Dublin.png
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/f/f1/Harry_Clarke_William_McBride_Window%2C_St._Rita%2C_St._Bernard%2C_Mary_Magdalene_Stained_Glass%2C_Church_of_the_Sacred_Heart_Donnybrook%2C_Dublin.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: >-
+          Resized and converted to WebP; composition unchanged. St. Rita is the left-hand light; the central
+          Mary Magdalene light is by William McBride.

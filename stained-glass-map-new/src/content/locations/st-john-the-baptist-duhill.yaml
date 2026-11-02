@@ -1,0 +1,49 @@
+name: St. John the Baptist's Church, Duhill
+coordinates:
+  - 52.29337
+  - -7.95139
+address: Castlegrace, Duhill, Co. Tipperary
+county: Tipperary
+google_maps_link: https://www.google.com/maps/search/?api=1&query=52.29337,-7.95139
+description: >-
+  Two striking Harry Clarke windows sit on either side of the altar in this rural church. Made in 1925, they
+  pair the vision at Lourdes with the dramatic story of John the Baptist.
+visit_note: >-
+  An active place of worship. Check local access before travelling and avoid services when viewing or
+  photographing the windows.
+sources:
+  - label: 'Wikimedia Commons: window documentation'
+    url: https://commons.wikimedia.org/wiki/Category:Harry_Clarke,_Beheading_of_John_the_Baptist
+  - label: Church location (OpenStreetMap via Mapcarta)
+    url: https://mapcarta.com/W1037792218
+windows:
+  - title: The Vision of Bernadette at Lourdes
+    artist: harry-clarke
+    year: 1925
+    description: The window to the left of the altar surrounds the apparition with dense floral ornament.
+    images:
+      - url: /images/researched/duhill-lourdes.webp
+        alt: The Vision of Bernadette at Lourdes by Harry Clarke at Duhill
+        credit: Andreas F. Borchert
+        license: CC BY-SA 4.0
+        license_url: https://creativecommons.org/licenses/by-sa/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:Duhill_Church_of_Saint_John_the_Baptist_Window_Vision_of_Bernadette_at_Lourdes_by_Harry_Clarke_2012_09_08.jpg
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/8/8d/Duhill_Church_of_Saint_John_the_Baptist_Window_Vision_of_Bernadette_at_Lourdes_by_Harry_Clarke_2012_09_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.
+  - title: The Beheading of John the Baptist
+    artist: harry-clarke
+    year: 1925
+    description: The window to the right of the altar depicts Salome with the head of John the Baptist.
+    images:
+      - url: /images/researched/duhill-beheading.webp
+        alt: The Beheading of John the Baptist by Harry Clarke at Duhill
+        credit: Andreas F. Borchert
+        license: CC BY-SA 4.0
+        license_url: https://creativecommons.org/licenses/by-sa/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:Duhill_Church_of_Saint_John_the_Baptist_Window_The_Beheading_of_John_the_Baptist_by_Harry_Clarke_2012_09_08.jpg
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/2/20/Duhill_Church_of_Saint_John_the_Baptist_Window_The_Beheading_of_John_the_Baptist_by_Harry_Clarke_2012_09_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.

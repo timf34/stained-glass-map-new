@@ -6,6 +6,8 @@ import { defineCollection, z } from 'astro:content';
  * Defines schemas for locations and artists YAML files
  */
 
+const sources = z.array(z.object({ label: z.string(), url: z.string().url() })).optional();
+
 // Location schema
 const locations = defineCollection({
   type: 'data',
@@ -16,6 +18,8 @@ const locations = defineCollection({
     county: z.string(),
     google_maps_link: z.string().url().nullable(),
     description: z.string().nullable(),
+    visit_note: z.string().optional(),
+    sources,
     windows: z.array(z.object({
       title: z.string(),
       artist: z.string().nullable(), // Slug reference to artist
@@ -25,6 +29,11 @@ const locations = defineCollection({
         url: z.string(),
         alt: z.string().optional(),
         caption: z.string().optional(),
+        credit: z.string().optional(),
+        license: z.string().optional(),
+        license_url: z.string().url().optional(),
+        source_url: z.string().url().optional(),
+        original_url: z.string().url().optional(),
       })),
     })),
   }),
@@ -39,6 +48,7 @@ const artists = defineCollection({
     birth_year: z.number().nullable(),
     death_year: z.number().nullable(),
     biography: z.string(),
+    sources,
     portrait_url: z.string().optional(),
   }),
 });

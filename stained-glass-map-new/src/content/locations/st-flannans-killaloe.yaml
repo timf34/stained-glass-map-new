@@ -1,0 +1,33 @@
+name: St. Flannan's Catholic Church, Killaloe
+coordinates:
+  - 52.807
+  - -8.4443
+address: Killaloe, Co. Clare
+county: Clare
+google_maps_link: https://www.google.com/maps/search/?api=1&query=52.807,-8.4443
+description: >-
+  The Scanlan memorial window stands to the right of the altar in this church near the Shannon. Commissioned
+  in 1927, it combines the Presentation in the Temple with smaller scenes above and below.
+visit_note: >-
+  An active place of worship. Check local access before travelling and avoid services when viewing or
+  photographing the windows.
+sources:
+  - label: 'Clare County Council: Lough Derg heritage trail, p. 61'
+    url: >-
+      https://www.clarecoco.ie/services/planning/publications/heritageconservation/lough-derg-on-the-shannon-heritage-trail-24576.pdf
+windows:
+  - title: The Presentation of Christ in the Temple
+    artist: harry-clarke
+    year: 1927
+    description: The main scene is accompanied by the Annunciation above and the Flight into Egypt below.
+    images:
+      - url: /images/researched/killaloe-presentation.webp
+        alt: The Presentation of Christ in the Temple, Harry Clarke window at Killaloe
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:01_The_Presentation_of_Christ_in_the_Temple_by_Harry_Clarke,_St._Flannan%27s_Church,_Killaloe.png
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/1/1c/01_The_Presentation_of_Christ_in_the_Temple_by_Harry_Clarke%2C_St._Flannan%27s_Church%2C_Killaloe.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.

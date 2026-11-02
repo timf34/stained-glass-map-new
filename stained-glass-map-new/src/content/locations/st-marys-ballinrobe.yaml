@@ -1,0 +1,51 @@
+name: St. Mary's Church, Ballinrobe
+coordinates:
+  - 53.62186
+  - -9.22201
+address: Main Street, Ballinrobe, Co. Mayo
+county: Mayo
+google_maps_link: https://www.google.com/maps/search/?api=1&query=53.62186,-9.22201
+description: >-
+  A rewarding stop for Harry Clarke's luminous colours and intricate figure work. The church's collection
+  includes scenes from the lives of Christ and Mary, alongside Irish saints. The original commission was made
+  in 1924.
+visit_note: >-
+  An active place of worship. Check local access before travelling and avoid services when viewing or
+  photographing the windows.
+sources:
+  - label: 'Historical Ballinrobe: church and window tour'
+    url: >-
+      https://www.historicalballinrobe.org/topics/harry-clarke-stained-glass-windows/harry-clarke-stained-glass-windows-tour
+  - label: 'Wikimedia Commons: church location'
+    url: https://commons.wikimedia.org/wiki/Category:St._Mary%27s_Church,_Ballinrobe
+windows:
+  - title: The Baptism and the Ascension
+    artist: harry-clarke
+    year: null
+    description: Two scenes from the life of Christ, part of the suite commissioned for this church in the 1920s.
+    images:
+      - url: /images/researched/ballinrobe-baptism-ascension.webp
+        alt: The Baptism and the Ascension, two stained-glass lights by Harry Clarke at Ballinrobe
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:01_Baptism_and_Ascension_by_Harry_Clarke,_St._Mary%27s_Ballinrobe.png
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/a/ae/01_Baptism_and_Ascension_by_Harry_Clarke%2C_St._Mary%27s_Ballinrobe.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.
+  - title: The Assumption and the Coronation of Mary
+    artist: harry-clarke
+    year: null
+    description: Paired scenes in richly patterned glass, from the Ballinrobe series.
+    images:
+      - url: /images/researched/ballinrobe-assumption-coronation.webp
+        alt: The Assumption and the Coronation of Mary by Harry Clarke at Ballinrobe
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:03_Assumption_and_Coronation_of_Mary_by_Harry_Clarke,_St._Mary%27s_Ballinrobe.png
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/c/c3/03_Assumption_and_Coronation_of_Mary_by_Harry_Clarke%2C_St._Mary%27s_Ballinrobe.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.

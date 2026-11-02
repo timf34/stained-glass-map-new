@@ -1,0 +1,53 @@
+name: St. Brendan's Cathedral, Loughrea
+coordinates:
+  - 53.197
+  - -8.5667
+address: Barrack Street, Loughrea, Co. Galway
+county: Galway
+google_maps_link: https://www.google.com/maps/search/?api=1&query=53.197,-8.5667
+description: >-
+  An outstanding place to explore the work of An Túr Gloine, the Irish stained-glass studio founded by Sarah
+  Purser. Michael Healy's windows here span decades, with deeply layered colour and carefully composed
+  figures.
+visit_note: >-
+  An active place of worship. Check local access before travelling and avoid services when viewing or
+  photographing the windows.
+sources:
+  - label: 'Galway County Heritage Office: cathedral and location'
+    url: >-
+      https://heritage.galwaycommunityheritage.org/content/places/loughrea-heritage-trail/1-st-brendans-cathedral
+  - label: Illustrated Guide to Galway Ecclesiastical Heritage, p. 100
+    url: https://dpdgay9x1sxad.cloudfront.net/wp-content/uploads/sites/6/2021/01/The-Illustrated-Guide.pdf
+  - label: David Caron on Michael Healy
+    url: https://www.thejournal.ie/readme/stained-glass-and-cathedrals-6199616-Oct2023/
+windows:
+  - title: Christ in Majesty (Christ the King)
+    artist: michael-healy
+    year: 1930
+    description: A richly coloured image of Christ in glory, also known by the inscription Tu Rex Gloriae Christe.
+    images:
+      - url: /images/researched/loughrea-christ-in-majesty.webp
+        alt: Christ in Majesty by Michael Healy at Loughrea Cathedral
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:15_Christ_in_Majesty_by_Michael_Healy,_An_T%C3%BAr_Gloine,_St._Brendan%27s_Cathedral,_Loughrea,_Stained_Glass_Window.png
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/3/38/15_Christ_in_Majesty_by_Michael_Healy%2C_An_T%C3%BAr_Gloine%2C_St._Brendan%27s_Cathedral%2C_Loughrea%2C_Stained_Glass_Window.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.
+  - title: Regina Coeli (Our Lady Queen of Heaven)
+    artist: michael-healy
+    year: 1933
+    description: Healy used layered and acid-treated glass to create a wide range of reds, blues and purples.
+    images:
+      - url: /images/researched/loughrea-regina-coeli.webp
+        alt: Regina Coeli by Michael Healy at Loughrea Cathedral
+        credit: NateBergin
+        license: CC BY 4.0
+        license_url: https://creativecommons.org/licenses/by/4.0
+        source_url: >-
+          https://commons.wikimedia.org/wiki/File:17_Regina_Coeli_by_Michael_Healy,_An_T%C3%BAr_Gloine,_St._Brendan%27s_Cathedral,_Loughrea,_Stained_Glass_Window.png
+        original_url: >-
+          https://upload.wikimedia.org/wikipedia/commons/8/84/17_Regina_Coeli_by_Michael_Healy%2C_An_T%C3%BAr_Gloine%2C_St._Brendan%27s_Cathedral%2C_Loughrea%2C_Stained_Glass_Window.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+        caption: Resized and converted to WebP; composition unchanged.

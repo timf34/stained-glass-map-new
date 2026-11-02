@@ -79,6 +79,8 @@ const fullLocations = locations
     county: loc.data.county,
     description: loc.data.description || null,
     google_maps_link: loc.data.google_maps_link || null,
+    visit_note: loc.data.visit_note,
+    sources: loc.data.sources,
     windows: loc.data.windows.map((w: any) => ({
       title: w.title,
       artist: w.artist || null,
@@ -137,6 +139,7 @@ const fullLocations = locations
         {artist.data.biography.split('\n\n').map((paragraph: string) => (
           <p>{paragraph}</p>
         ))}
+        {artist.data.sources?.map(source => <p><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a></p>)}
       </div>
     </section>
 

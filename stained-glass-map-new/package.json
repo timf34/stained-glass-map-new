@@ -8,18 +8,22 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:content": "node scripts/validate-content.mjs"
   },
   "dependencies": {
+    "@nanostores/react": "^0.7.2",
     "astro": "^4.16.0",
+    "js-yaml": "^4.1.1",
     "mapbox-gl": "^3.1.0",
-    "nanostores": "^0.10.3",
-    "@nanostores/react": "^0.7.2"
+    "nanostores": "^0.10.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",
     "@astrojs/react": "^3.6.2",
+    "@types/js-yaml": "^4.0.9",
     "@types/mapbox-gl": "^3.4.0",
+    "@types/node": "^22.20.5",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "react": "^18.3.0",

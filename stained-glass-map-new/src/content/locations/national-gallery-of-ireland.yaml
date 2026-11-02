@@ -12,12 +12,12 @@ windows:
     year: 1922
     description: null
     images:
-      - url: https://i.imgur.com/HNOpaqO.jpeg
+      - url: /images/locations/titiana_and_bottom.jpg
         alt: Titania and Bottom - Harry Clarke
   - title: The Mother of Sorrows
     artist: harry-clarke
     year: 1926
     description: null
     images:
-      - url: https://i.imgur.com/AwAv1nR.jpeg
+      - url: /images/locations/the_mother_of_sorrows.jpg
         alt: The Mother of Sorrows - Harry Clarke

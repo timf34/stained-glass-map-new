@@ -149,7 +149,7 @@ a:hover {
   position: fixed;
   width: var(--corner-size);
   height: var(--corner-size);
-  opacity: 0.6;
+  opacity: 0.25;
   pointer-events: none;
   z-index: 1;
   user-select: none;
@@ -355,3 +355,6 @@ button:disabled,
 .mapboxgl-ctrl-group button:hover {
   background: var(--color-hover-bg);
 }
+
+:focus-visible { outline: 3px solid #956f24; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
